@@ -37,6 +37,7 @@ class MediaInstance(models.Model):
     media = models.ForeignKey('Media', on_delete=models.SET_NULL, null=True)
     due = models.DateField(null=True, blank=True)
     user = models.ForeignKey('User', on_delete=models.SET_NULL, null=True)
+    fine = models.IntegerField(default=0)
 
     def __str__(self):
         return self.media.title

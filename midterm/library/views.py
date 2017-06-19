@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from library.forms import MediaForm
 from library.models import Media, MediaInstance
 from django.db.models import Q
+import datetime as date
 
 def index(request):
     #return HttpResponse("Library Tracking System <a href='/library/about/'>About</a>")
@@ -14,6 +15,10 @@ def about(request):
 
 def checkedout(request):
     checkedout_list = MediaInstance.objects.order_by('due')
+    for inst in checkedout_list:
+        if inst.due < date.date.today(): # date.today():
+            inst.fine = (date.date.today() - inst.due).days
+
     context_dict = {'checkedout': checkedout_list}
 
     return render(request, "library/checkedout.html", context_dict)

@@ -15,6 +15,7 @@
                 <td>{{ check.media }}</td><td>-</td>
                 <td>Due on: {{ check.due }}</td><td>-</td>
                 <td>Checked Out by: {{ check.user }}</td>
+                <td>Fine: ${{ check.fine }}</td>
             </tr>
             {% endfor %}
         </table>
