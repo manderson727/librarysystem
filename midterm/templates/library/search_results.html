@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+{% extends 'library/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>Add Media</title>
-    </head>
-    <body>
+{% block title_block %}
+{% endblock %}
 
-  <h1>Search Results</h1>
+{% block body_block %}
+    <h1>Search Results</h1>
     {% if Medias %}
 
         <table>
@@ -22,14 +21,4 @@
     {% else %}
         <p>No results</p>
     {% endif %}
-
-        <br/><br/>
-        <div>
-            <a href="/library/">Home</a><br/>
-            <a href="/library/about/">About</a><br/>
-            <a href="/library/checkedout/">Media Checked Out</a><br />
-            <a href="/library/search-form/">Search Media</a><br />
-            <img src="{% static "images/library.jpg" %}" alt="Library" />
-        </div>
-    </body>
-</html>
+{% endblock %}

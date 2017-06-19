@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Library System</title>
+    </head>
+    <body>
+        <h1>Library System</h1>
+
+            <img src="{% static "images/library.jpg" %}" alt="Library" />
+        <div>
+            {% block body_block %}
+            {% endblock %}
+        </div>
+    <hr/>
+
+        <br/><br/>
+        <div>
+            <ul>
+                <li><a href="/library">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'checkedout' %}">Checked Out Media</a></li>
+                <li><a href="/library/search-form/">Search Media</a></li>
+            </ul>
+        </div>
+    </body>
+</html>

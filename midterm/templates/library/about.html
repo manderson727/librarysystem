@@ -1,23 +1,11 @@
 <!DOCTYPE html>
+{% extends 'library/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>About Library System</title>
-    </head>
-    <body>
-        <h1>About Library System</h1>
+{% block title_block %}
+{% endblock %}
 
+{% block body_block %}
 
+{% endblock %}
 
-
-        <br/><br/>
-        <div>
-            <a href="/library/">Home</a><br/>
-            <a href="/library/about/">About</a><br/>
-            <a href="/library/checkedout/">Media Checked Out</a><br />
-            <a href="/library/search-form/">Search Media</a><br />
-            <img src="{% static "images/library.jpg" %}" alt="Library" />
-        </div>
-    </body>
-</html>

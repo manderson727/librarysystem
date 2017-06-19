@@ -1,14 +1,12 @@
 <!DOCTYPE html>
+{% extends 'library/base.html' %}
 {% load staticfiles %}
 
-<html>
-    <head>
-        <title>Library System</title>
-    </head>
-    <body>
-        <h1>Media Checked Out</h1>
+{% block title_block %}
+{% endblock %}
 
-        {% if checkedout %}
+{% block body_block %}
+    {% if checkedout %}
         <table>
             {% for check in checkedout %}
             <tr>
@@ -22,14 +20,4 @@
         {% else %}
             <strong>No media checked out</strong>
         {% endif %}
-
-        <br/><br/>
-        <div>
-            <a href="/library/">Home</a><br/>
-            <a href="/library/about/">About</a><br/>
-            <a href="/library/checkedout/">Media Checked Out</a><br />
-            <a href="/library/search-form/">Search Media</a><br />
-            <img src="{% static "images/library.jpg" %}" alt="Library" />
-        </div>
-    </body>
-</html>
+{% endblock %}
