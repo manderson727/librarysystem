@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Library System</title>
+    </head>
+    <body>
+        <h1>Media Checked Out</h1>
+
+        {% if checkedout %}
+        <table>
+            {% for check in checkedout %}
+            <tr>
+                <td>{{ check.media }}</td><td>-</td>
+                <td>Due on: {{ check.due }}</td><td>-</td>
+                <td>Checked Out by: {{ check.user }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <strong>No media checkedout</strong>
+        {% endif %}
+
+        <br/><br/>
+        <div>
+            <a href="/library/">Home</a><br/>
+            <a href="/library/about/">About</a><br/>
+            <a href="/library/checkedout/">Media Checked Out</a><br />
+            <a href="/library/search-form/">Search Media</a><br />
+            <img src="{% static "images/library.jpg" %}" alt="Library" />
+        </div>
+    </body>
+</html>

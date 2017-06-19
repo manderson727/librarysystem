@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Add Media</title>
+    </head>
+    <body>
+        <h1>Add Media</h1>
+
+    <div>
+         <form id="media_form" method="post" action="/library/add_media/">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}<br/><br/>
+            {% endfor %}
+            <input type="submit" name="submit" value="Create Media" />
+         </form>
+    </div>
+
+        <br/><br/>
+        <div>
+            <a href="/library/">Home</a><br/>
+            <a href="/library/about/">About</a><br/>
+            <a href="/library/checkedout/">Media Checked Out</a><br />
+            <a href="/library/search-form/">Search Media</a><br />
+            <img src="{% static "images/library.jpg" %}" alt="Library" />
+        </div>
+    </body>
+</html>

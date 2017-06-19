@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Add Media</title>
+    </head>
+    <body>
+{% block content %}
+
+  <h1>Search Results</h1>
+  {% if results %}
+    {% for result in results %}
+      <li>
+        <a href="{{ result.get_absolute_url }}">{{result.title }}</a> ({{result.topic}})
+      </li>
+    {% endfor %}
+  {% else %}
+      <p>There were no books found.</p>
+  {% endif %}
+
+{% endblock %}
+
+    </body>
+</html>

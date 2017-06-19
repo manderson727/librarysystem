@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Search Title</title>
+    </head>
+    <body>
+        <h1>Search Title</h1>
+
+    <div>
+	<form method="get" action="/library/search/">
+	  Search Catalog: <input type="text" name="q" />
+	  <input type="submit" value="Search" />
+	</form>
+    </div>
+
+        <br/><br/>
+        <div>
+            <a href="/library/">Home</a><br/>
+            <a href="/library/about/">About</a><br/>
+            <a href="/library/checkedout/">Media Checked Out</a><br />
+            <a href="/library/search-form/">Search Media</a><br />
+            <img src="{% static "images/library.jpg" %}" alt="Library" />
+        </div>
+    </body>
+</html>

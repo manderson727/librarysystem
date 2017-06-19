@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+
+<html>
+    <head>
+        <title>Add Media</title>
+    </head>
+    <body>
+
+  <h1>Search Results</h1>
+    {% if Medias %}
+
+        <table>
+             {% for media in Medias %}
+            <tr><td>Title: {{ media.title }}</td></tr>
+            <tr><td>ISBN: {{ media.isbn }}</td></tr>
+            <tr><td>Type: {{ media.type }}</td></tr>
+            <tr><td>Genre: {{ media.genre }}</td></tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results</p>
+    {% endif %}
+
+        <br/><br/>
+        <div>
+            <a href="/library/">Home</a><br/>
+            <a href="/library/about/">About</a><br/>
+            <a href="/library/checkedout/">Media Checked Out</a><br />
+            <a href="/library/search-form/">Search Media</a><br />
+            <img src="{% static "images/library.jpg" %}" alt="Library" />
+        </div>
+    </body>
+</html>
