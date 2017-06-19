@@ -14,7 +14,7 @@ class Media(models.Model):
     isbn = models.CharField(max_length=128)
     genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
     type = models.CharField(max_length=128)
-    image = models.ImageField(upload_to = 'static/images/')
+    image = models.ImageField(upload_to='static/images/')
 
     class Meta:
         verbose_name_plural = 'Media'
