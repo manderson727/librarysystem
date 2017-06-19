@@ -1,5 +1,5 @@
 from django.contrib import admin
-from library.models import Genre, Media, MediaInstance, User
+from library.models import Genre, Media, MediaInstance, User, SubGenre
 
 class UserAdmin(admin.ModelAdmin):
     list_display = ('name', 'username', 'email')
@@ -17,3 +17,8 @@ class MediaInstance(admin.ModelAdmin):
 @admin.register(Genre)
 class Genre(admin.ModelAdmin):
     pass
+
+@admin.register(SubGenre)
+class SubGenre(admin.ModelAdmin):
+    pass
+

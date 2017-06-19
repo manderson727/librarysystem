@@ -9,12 +9,23 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+class SubGenre(models.Model):
+    name = models.CharField(max_length=128)
+    genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
+
+    class Meta:
+        verbose_name_plural = 'SubGenre'
+
+    def __str__(self):
+        return self.name
+
 class Media(models.Model):
     title = models.CharField(max_length=128)
     isbn = models.CharField(max_length=128)
     genre = models.ForeignKey('Genre', on_delete=models.SET_NULL, null=True)
     type = models.CharField(max_length=128)
     image = models.ImageField(upload_to='static/images/')
+    subgenre = models.ForeignKey('SubGenre', on_delete=models.SET_NULL, null=True)
 
     class Meta:
         verbose_name_plural = 'Media'
