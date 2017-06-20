@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'library/base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+{% endblock %}
+
+{% block body_block %}
+        <h1>Users</h1>
+    {% if users %}
+        <table>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.name }}</td><td>-</td>
+                <td>{{ user.email }}</td><td>-</td>
+                <td>{{ user.username }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+            <strong>No Users</strong>
+        {% endif %}
+{% endblock %}

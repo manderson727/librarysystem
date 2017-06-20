@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from library.forms import MediaForm
-from library.models import Media, MediaInstance
+from library.models import Media, MediaInstance, User
 from django.db.models import Q
 import datetime as date
 
@@ -33,3 +33,15 @@ def search(request):
         return render(request, 'library/search_results.html', {'Medias': Medias, 'query': q})
     else:
         return HttpResponse('Please submit a search title')
+
+def show_users(request):
+    context_dict = {}
+
+    try:
+        users = User.objects.all()
+
+        context_dict['users'] = users
+    except User.DoesNotExist:
+        context_dict['users'] = None
+
+    return render(request, 'library/users.html', context_dict)
